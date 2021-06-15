@@ -1,9 +1,9 @@
-group("your.groupd.id")
-version("your.version")
+group("com.tabuyos.vertx")
+version("1.0")
 
 def junitJupiterVersion = "5.7.0"
 def removeParentSrc = true
-def supportParentChildModule = true
+def supportParentChildModule = false
 
 static def deleteDirectory(File file) {
   if (file.isFile()) {
@@ -23,8 +23,8 @@ static def parentChildModule(Project project) {
     println("++++++ Add afterEvaluate hook for ${subproject.getDisplayName()}")
     subproject.afterEvaluate {
       DependencySet childDependencies = subproject.getConfigurations().getByName(name).getDependencies()
-      parentDependencies.each {parent ->
-        if (!childDependencies.any {child ->
+      parentDependencies.each { parent ->
+        if (!childDependencies.any { child ->
           child.getGroup() + ":" + child.getName() == parent.getGroup() + ":" + parent.getName()
         }) {
           subproject.dependencies.add(name, parent)
@@ -50,6 +50,11 @@ allprojects {
 
 subprojects {
   apply plugin: "java"
+
+  ext {
+    vertxVersion = "4.1.0"
+    jacksonVersion = "2.11.3"
+  }
 
   repositories {
     mavenCentral()

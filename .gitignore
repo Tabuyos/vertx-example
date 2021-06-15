@@ -31,3 +31,4 @@ build
 *.iml
 
 # your ignore files
+node_modules

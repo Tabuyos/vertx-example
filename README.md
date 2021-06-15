@@ -1,10 +1,7 @@
-# gradle-java-template
-Generate gradle project for Java with parent-child multi-modules.
+# vertx-example
+learn and practice vert.x
 
-# Usage
-```shell
-$ git clone git@github.com:Tabuyos/gradle-java-template.git your-project-name
-$ cd your-project-name
-$ git remote set-url origin your-real-git-repository-url
-```
+convert to gradle project from [vertx-examples](https://github.com/vert-x3/vertx-examples)
 
+## core-example
+core-example
