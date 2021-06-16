@@ -21,25 +21,25 @@ public class Runner {
   private static final String CORE_EXAMPLES_DIR = "core-example";
   private static final String CORE_EXAMPLES_JAVA_DIR = CORE_EXAMPLES_DIR + "/src/main/java/";
 
-  public static void runClusteredExample(Class clazz) {
+  public static void runClusteredExample(Class<?> clazz) {
     runExample(CORE_EXAMPLES_JAVA_DIR, clazz, new VertxOptions(), null, true);
   }
 
-  public static void runClusteredExample(Class clazz, VertxOptions options) {
+  public static void runClusteredExample(Class<?> clazz, VertxOptions options) {
     runExample(CORE_EXAMPLES_JAVA_DIR, clazz, options, null, true);
   }
 
-  public static void runExample(Class clazz) {
+  public static void runExample(Class<?> clazz) {
     runExample(CORE_EXAMPLES_JAVA_DIR, clazz, new VertxOptions(), null, false);
   }
 
-  public static void runExample(Class clazz, DeploymentOptions options) {
+  public static void runExample(Class<?> clazz, DeploymentOptions options) {
     runExample(CORE_EXAMPLES_JAVA_DIR, clazz, new VertxOptions(), options, false);
   }
 
   public static void runExample(
       String exampleDir,
-      Class clazz,
+      Class<?> clazz,
       VertxOptions options,
       DeploymentOptions deploymentOptions,
       boolean clustered) {
@@ -53,7 +53,7 @@ public class Runner {
 
   public static void runExample(
       String exampleDir,
-      String verticleID,
+      String verticleId,
       VertxOptions options,
       DeploymentOptions deploymentOptions,
       boolean clustered) {
@@ -81,9 +81,9 @@ public class Runner {
         vertx -> {
           try {
             if (deploymentOptions != null) {
-              vertx.deployVerticle(verticleID, deploymentOptions);
+              vertx.deployVerticle(verticleId, deploymentOptions);
             } else {
-              vertx.deployVerticle(verticleID);
+              vertx.deployVerticle(verticleId);
             }
           } catch (Throwable t) {
             t.printStackTrace();
