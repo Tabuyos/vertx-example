@@ -9,6 +9,7 @@ import io.vertx.core.file.FileSystem;
 import io.vertx.core.file.OpenOptions;
 import io.vertx.core.http.HttpClient;
 import io.vertx.core.http.HttpClientOptions;
+import io.vertx.core.http.HttpClientResponse;
 import io.vertx.core.http.HttpMethod;
 
 /**
@@ -43,15 +44,9 @@ public class Client extends AbstractVerticle {
                         req.headers().set("content-length", "" + size);
                         return fs.open(filename, new OpenOptions());
                       })
-                  .compose(file -> req.send(file).map(resp -> resp.statusCode()));
+                  .compose(file -> req.send(file).map(HttpClientResponse::statusCode));
             })
-        .onSuccess(
-            statusCode -> {
-              System.out.println("Response " + statusCode);
-            })
-        .onFailure(
-            err -> {
-              err.printStackTrace();
-            });
+        .onSuccess(statusCode -> System.out.println("Response " + statusCode))
+        .onFailure(Throwable::printStackTrace);
   }
 }

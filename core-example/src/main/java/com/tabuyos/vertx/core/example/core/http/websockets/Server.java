@@ -28,7 +28,9 @@ public class Server extends AbstractVerticle {
         .webSocketHandler(ws -> ws.handler(ws::writeBinaryMessage))
         .requestHandler(
             req -> {
-              if (req.uri().equals("/")) req.response().sendFile("ws.html");
+              if ("/".equals(req.uri())) {
+                req.response().sendFile("ws.html");
+              }
             })
         .listen(8080);
   }

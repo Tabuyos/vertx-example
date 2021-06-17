@@ -50,6 +50,7 @@ allprojects {
 
 subprojects {
   apply plugin: "java"
+  apply plugin: "idea"
 
   ext {
     vertxVersion = "4.1.0"
@@ -88,6 +89,13 @@ subprojects {
   java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
+  }
+
+  idea {
+    module {
+      downloadJavadoc = false
+      downloadSources = true
+    }
   }
 
   tasks.withType(JavaCompile) {

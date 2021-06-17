@@ -1,5 +1,6 @@
 dependencies {
   implementation("io.vertx:vertx-core:$vertxVersion")
+  implementation("io.vertx:vertx-codegen:$vertxVersion")
   implementation("io.vertx:vertx-hazelcast:$vertxVersion")
   implementation("com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion")
   implementation("io.netty:netty-tcnative-boringssl-static:2.0.34.Final")

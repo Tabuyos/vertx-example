@@ -31,7 +31,7 @@ public class MainVerticle extends AbstractVerticle {
   public void start() throws Exception {
     System.out.println("[Main] Running in " + Thread.currentThread().getName());
     vertx.deployVerticle(
-        "io.vertx.example.core.verticle.worker.WorkerVerticle",
+        "com.tabuyos.vertx.core.example.core.verticle.worker.WorkerVerticle",
         new DeploymentOptions().setWorker(true));
 
     vertx

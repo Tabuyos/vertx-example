@@ -23,7 +23,7 @@ public class Server extends AbstractVerticle {
   @Override
   public void start() throws Exception {
     vertx.deployVerticle(
-        "io.vertx.example.core.http.sharing.HttpServerVerticle",
+        "com.tabuyos.vertx.core.example.core.http.sharing.HttpServerVerticle",
         new DeploymentOptions().setInstances(2));
   }
 }

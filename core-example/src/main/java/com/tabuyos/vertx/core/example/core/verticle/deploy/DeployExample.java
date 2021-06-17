@@ -35,7 +35,7 @@ public class DeployExample extends AbstractVerticle {
 
     // Deploy another instance and  want for it to start
     vertx.deployVerticle(
-        "io.vertx.example.core.verticle.deploy.OtherVerticle",
+        "com.tabuyos.vertx.core.example.core.verticle.deploy.OtherVerticle",
         res -> {
           if (res.succeeded()) {
 

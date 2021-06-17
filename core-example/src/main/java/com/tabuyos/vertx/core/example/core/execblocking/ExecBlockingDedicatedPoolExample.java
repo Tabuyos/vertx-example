@@ -19,7 +19,7 @@ public class ExecBlockingDedicatedPoolExample {
    */
   public static void main(String[] args) {
     Runner.runExample(
-        io.vertx.example.core.execblocking.ExecBlockingExample.class,
+        ExecBlockingExample.class,
         new DeploymentOptions()
             .setWorkerPoolName("dedicated-pool")
             .setMaxWorkerExecuteTime(120000)

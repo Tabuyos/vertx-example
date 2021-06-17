@@ -65,7 +65,7 @@ public class Client extends AbstractVerticle {
                         // Once head has been sent we can send custom frames
                         vertx.setPeriodic(
                             1000,
-                            timerID -> {
+                          timerId -> {
                               System.out.println("Sending ping frame to server");
                               request.writeCustomFrame(10, 0, Buffer.buffer("ping"));
                             });

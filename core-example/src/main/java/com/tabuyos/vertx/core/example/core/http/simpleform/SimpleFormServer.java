@@ -29,14 +29,14 @@ public class SimpleFormServer extends AbstractVerticle {
         .createHttpServer()
         .requestHandler(
             req -> {
-              if (req.uri().equals("/")) {
+              if ("/".equals(req.uri())) {
                 // Serve the index page
                 req.response().sendFile("index.html");
               } else if (req.uri().startsWith("/form")) {
                 req.response().setChunked(true);
                 req.setExpectMultipart(true);
                 req.endHandler(
-                    (v) -> {
+                    v -> {
                       for (String attr : req.formAttributes().names()) {
                         req.response()
                             .write(

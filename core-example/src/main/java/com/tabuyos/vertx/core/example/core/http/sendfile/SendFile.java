@@ -31,11 +31,11 @@ public class SendFile extends AbstractVerticle {
         .requestHandler(
             req -> {
               String filename = null;
-              if (req.path().equals("/")) {
+              if ("/".equals(req.path())) {
                 filename = "index.html";
-              } else if (req.path().equals("/page1.html")) {
+              } else if ("/page1.html".equals(req.path())) {
                 filename = "page1.html";
-              } else if (req.path().equals("/page2.html")) {
+              } else if ("/page2.html".equals(req.path())) {
                 filename = "page2.html";
               } else {
                 req.response().setStatusCode(404).end();

@@ -31,7 +31,7 @@ public class SimpleFormUploadServer extends AbstractVerticle {
         .createHttpServer()
         .requestHandler(
             req -> {
-              if (req.uri().equals("/")) {
+              if ("/".equals(req.uri())) {
                 // Serve the index page
                 req.response().sendFile("index.html");
               } else if (req.uri().startsWith("/form")) {

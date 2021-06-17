@@ -38,9 +38,6 @@ public class Client extends AbstractVerticle {
                   });
               webSocket.writeBinaryMessage(Buffer.buffer("Hello world"));
             })
-        .onFailure(
-            err -> {
-              err.printStackTrace();
-            });
+        .onFailure(Throwable::printStackTrace);
   }
 }

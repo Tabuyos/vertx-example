@@ -37,7 +37,7 @@ public class Client extends AbstractVerticle {
                 new ProxyOptions().setType(ProxyType.HTTP).setHost("localhost").setPort(8080));
     HttpClient client = vertx.createHttpClient(options);
     client
-        .request(HttpMethod.GET, 8080, "localhost", "/")
+        .request(HttpMethod.GET, 8282, "localhost", "/")
         .compose(
             request -> {
               request.setChunked(true);
