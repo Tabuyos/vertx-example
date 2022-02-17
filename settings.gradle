@@ -1,3 +1,4 @@
 rootProject.setName("vertx-example")
 
 include("core-example")
+include("web-example")
